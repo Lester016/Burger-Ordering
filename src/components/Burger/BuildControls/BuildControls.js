@@ -19,8 +19,7 @@ const buildControls = (props) => (
                 label={ctrl.label}
                 added={() => props.ingredientAdded(ctrl.type)}
                 removed={() => props.ingredientRemoved(ctrl.type)}
-                //disable props is in the burger builder.
-                disabled={props.disable[ctrl.type]}/>
+                disabled={props.disabled[ctrl.type]} />
         ))}
         <button 
             className={classes.OrderButton}

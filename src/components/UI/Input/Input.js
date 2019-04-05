@@ -5,11 +5,9 @@ import classes from './Input.css';
 const input = ( props ) => {
     let inputElement = null;
     const inputClasses = [classes.InputElement];
-    let validationError = null;
-    // Checking if it's valid and have a valitadion and is touched.
-    if((props.invalid && props.shouldValidate) && props.isTouched){
+
+    if (props.invalid && props.shouldValidate && props.touched) {
         inputClasses.push(classes.Invalid);
-        validationError = <p className={classes.ValidationError}>Please enter a valid {props.valueType}</p>;
     }
 
     switch ( props.elementType ) {
@@ -19,7 +17,6 @@ const input = ( props ) => {
                 {...props.elementConfig}
                 value={props.value}
                 onChange={props.changed} />;
-                
             break;
         case ( 'textarea' ):
             inputElement = <textarea
@@ -54,7 +51,6 @@ const input = ( props ) => {
         <div className={classes.Input}>
             <label className={classes.Label}>{props.label}</label>
             {inputElement}
-            {validationError}
         </div>
     );
 
