@@ -1,3 +1,12 @@
+## Home
+![image](https://user-images.githubusercontent.com/37885860/60308652-805bb900-997c-11e9-9171-b06b569d5910.png)
+## Checkout
+![image](https://user-images.githubusercontent.com/37885860/60308661-8b164e00-997c-11e9-912e-50ef35420e0f.png)
+## Orders
+![image](https://user-images.githubusercontent.com/37885860/60308667-923d5c00-997c-11e9-8bd5-0668ca6c6158.png)
+## Responsive View
+![image](https://user-images.githubusercontent.com/37885860/60308672-97021000-997c-11e9-8e12-e4855ff27d90.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
