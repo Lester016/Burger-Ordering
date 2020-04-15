@@ -9,7 +9,7 @@ import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import axios from "../../axios-orders";
-import * as actionTypes from "../../store/actions";
+import * as actions from "../../store/actions/index";
 
 class BurgerBuilder extends Component {
   // constructor(props) {
@@ -20,27 +20,27 @@ class BurgerBuilder extends Component {
     purchasable: false,
     purchasing: false,
     loading: false,
-    error: false,
   };
 
-  // componentDidMount() {
-  //   console.log(this.props);
-  //   axios
-  //     .get("https://my-awesome-burger-in-react.firebaseio.com/ingredients.json")
-  //     .then((response) => {
-  //       let purchasable = false;
-  //       let values = Object.values(response.data);
-  //       for (let n in values) {
-  //         if (values[n] > 0) {
-  //           purchasable = true;
-  //         }
-  //       }
-  //       this.setState({ ingredients: response.data, purchasable: purchasable });
-  //     })
-  //     .catch((error) => {
-  //       this.setState({ error: true });
-  //     });
-  // }
+  componentDidMount() {
+    console.log(this.props);
+    this.props.onInitIngredients();
+    // axios
+    //   .get("https://my-awesome-burger-in-react.firebaseio.com/ingredients.json")
+    //   .then((response) => {
+    //     let purchasable = false;
+    //     let values = Object.values(response.data);
+    //     for (let n in values) {
+    //       if (values[n] > 0) {
+    //         purchasable = true;
+    //       }
+    //     }
+    //     this.setState({ ingredients: response.data, purchasable: purchasable });
+    //   })
+    //   .catch((error) => {
+    //     this.setState({ error: true });
+    //   });
+  }
 
   // calculates the sum of number of pieces in ingredients.
   // if none of the ingredients appeared it will return false.
@@ -118,7 +118,7 @@ class BurgerBuilder extends Component {
       disabledInfo[key] = disabledInfo[key] <= 0;
     }
     let orderSummary = null;
-    let burger = this.state.error ? (
+    let burger = this.props.error ? (
       <p>Ingredients can't be loaded!</p>
     ) : (
       <Spinner />
@@ -169,15 +169,19 @@ const mapStateToProps = (state) => {
   return {
     ingredients: state.ingredients,
     totalPrice: state.totalPrice,
+    error: state.error,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onAddIngredient: (ingredient) =>
-      dispatch({ type: actionTypes.ADD_INGREDIENT, ingredient: ingredient }),
+      dispatch(actions.addIngredient(ingredient)),
     onRemoveIngredient: (ingredient) =>
-      dispatch({ type: actionTypes.REMOVE_INGREDIENT, ingredient: ingredient }),
+      dispatch(actions.removeIngredient(ingredient)),
+    onInitIngredients: () => {
+      dispatch(actions.initIngredients());
+    },
   };
 };
 
