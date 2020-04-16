@@ -19,7 +19,6 @@ class BurgerBuilder extends Component {
   state = {
     purchasable: false,
     purchasing: false,
-    loading: false,
   };
 
   componentDidMount() {
@@ -108,6 +107,7 @@ class BurgerBuilder extends Component {
     // queryParams.push("price=" + this.state.totalPrice);
     // const queryString = queryParams.join("&");
     this.props.history.push("/checkout");
+    this.props.onInitPurchased()
   };
 
   render() {
@@ -167,9 +167,9 @@ class BurgerBuilder extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    ingredients: state.ingredients,
-    totalPrice: state.totalPrice,
-    error: state.error,
+    ingredients: state.burger.ingredients,
+    totalPrice: state.burger.totalPrice,
+    error: state.burger.error,
   };
 };
 
@@ -182,6 +182,9 @@ const mapDispatchToProps = (dispatch) => {
     onInitIngredients: () => {
       dispatch(actions.initIngredients());
     },
+    onInitPurchased: () => {
+      dispatch(actions.purchaseInit())
+    }
   };
 };
 
