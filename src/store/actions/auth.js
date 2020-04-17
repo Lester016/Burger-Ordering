@@ -32,7 +32,7 @@ export const logout = (authExpiration) => {
   return (dispatch) => {
     setTimeout(() => {
       dispatch(clearTokens());
-    }, authExpiration);
+    }, authExpiration * 1000);
   };
 };
 
