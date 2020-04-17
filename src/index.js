@@ -10,10 +10,14 @@ import registerServiceWorker from "./registerServiceWorker";
 import bugerBuilderReducer from "./store/reducers/burgerBuilder";
 import orderReducer from "./store/reducers/order";
 import { Provider } from "react-redux";
-
+import authReducer from "./store/reducers/auth";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const rootReducers = combineReducers({burger: bugerBuilderReducer, order: orderReducer});
+const rootReducers = combineReducers({
+  burger: bugerBuilderReducer,
+  order: orderReducer,
+  auth: authReducer,
+});
 
 const store = createStore(
   rootReducers,
