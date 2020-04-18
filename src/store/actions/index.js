@@ -11,4 +11,9 @@ export {
   fetchOrder,
 } from "./order";
 
-export { authenticate } from "./auth";
+export {
+  authenticate,
+  clearTokens,
+  sethAuthRedirectPath,
+  authCheckState,
+} from "./auth";

@@ -48,11 +48,6 @@ const reducer = (state = initialState, action) => {
         orders: action.orderData,
         loading: false,
       };
-    case actionTypes.FETCH_INGREDIENTS_FAILED:
-      return {
-        ...state,
-        loading: false,
-      };
 
     default:
       return state;
