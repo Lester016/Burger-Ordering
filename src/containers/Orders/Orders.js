@@ -9,13 +9,11 @@ import Spinner from "../../components/UI/Spinner/Spinner";
 
 class Orders extends Component {
   componentDidMount() {
-    this.props.onAutoSignup();
-    console.log("onAutoSignup");
     let token = this.props.token;
     if (token === null) {
       token = localStorage.getItem("token");
     }
-    this.props.onFetchInit(token);
+    this.props.onFetchInit(token, this.props.userId);
   }
 
   render() {
@@ -38,13 +36,13 @@ const mapStateToProps = (state) => {
     orders: state.order.orders,
     loading: state.order.loading,
     token: state.auth.token,
+    userId: state.auth.userId,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onFetchInit: (token) => dispatch(actions.fetchOrder(token)),
-    onAutoSignup: () => dispatch(actions.authCheckState()),
+    onFetchInit: (token, userId) => dispatch(actions.fetchOrder(token, userId)),
   };
 };
 
