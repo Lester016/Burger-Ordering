@@ -67,7 +67,6 @@ export const authenticate = (email, password, isSignUp) => {
         dispatch(logout(response.data.expiresIn));
       })
       .catch((error) => {
-        console.log(error.response.data.error);
         dispatch(authFailed(error.response.data.error));
       });
   };

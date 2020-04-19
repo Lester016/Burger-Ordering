@@ -13,7 +13,7 @@ class Orders extends Component {
     if (token === null) {
       token = localStorage.getItem("token");
     }
-    this.props.onFetchInit(token, this.props.userId);
+    this.props.onFetchInit(token, localStorage.getItem("userId"));
   }
 
   render() {

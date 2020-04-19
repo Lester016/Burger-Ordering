@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Layout from "./hoc/Layout/Layout";
@@ -25,6 +25,7 @@ class App extends Component {
             <Route path="/auth" exact component={Authentication} />
             <Route path="/logout" component={Logout} />
             <Route path="/" exact component={BurgerBuilder} />
+            <Redirect to="/" />
           </Switch>
         </Layout>
       </div>
