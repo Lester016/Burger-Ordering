@@ -2,16 +2,16 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   ingredients: null,
-  totalPrice: 4,
+  totalPrice: 5,
   error: false,
   building: false,
 };
 
 const INGREDIENT_PRICES = {
-  salad: 0.5,
-  cheese: 0.4,
-  meat: 1.3,
-  bacon: 0.7,
+  salad: 2,
+  cheese: 5,
+  meat: 8,
+  bacon: 7,
 };
 
 const reducer = (state = initialState, action) => {
