@@ -29,21 +29,7 @@ export const fetchIngredientsFailed = () => {
 };
 
 export const initIngredients = () => {
-  return (dispatch) => {
-    axios
-      .get("https://lestersburger.firebaseio.com/ingredients.json")
-      .then((response) => {
-        // let purchasable = false;
-        // let values = Object.values(response.data);
-        // for (let n in values) {
-        //   if (values[n] > 0) {
-        //     purchasable = true;
-        //   }
-        // }
-        dispatch(setIngredients(response.data));
-      })
-      .catch((error) => {
-        dispatch(fetchIngredientsFailed());
-      });
+  return {
+    type: actionTypes.INIT_INGREDIENTS,
   };
 };

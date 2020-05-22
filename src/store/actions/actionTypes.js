@@ -28,7 +28,12 @@ export const AUTH_CLEAR_TOKENS = "AUTH_CLEAR_TOKENS";
 export const SET_AUTH_REDIRECT_PATH = "SET_AUTH_REDIRECT_PATH";
 
 // Redux Saga way
+
+// Authentications
 export const AUTH_USER = "AUTH_USER";
 export const AUTH_INIT_CLEARTOKENS = "AUTH_INIT_CLEARTOKENS";
 export const AUTH_INIT_LOGOUT = "AUTH_INIT_LOGOUT";
 export const AUTH_CHECK_STATE = "AUTH_CHECK_STATE";
+
+// Burger Builder
+export const INIT_INGREDIENTS = "INIT_INGREDIENTS";
