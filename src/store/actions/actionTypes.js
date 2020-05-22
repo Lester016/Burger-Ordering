@@ -20,12 +20,15 @@ export const FETCH_ORDER_FAILED = "FETCH_ORDER_FAILED";
 export const FETCH_ORDER_START = "FETCH_ORDER_START";
 
 // Authentications
-export const AUTH_USER = "AUTH_USER"; // Saga way
 export const AUTH_START = "AUTH_START";
 export const AUTH_SUCCESS = "AUTH_SUCCESS";
 export const AUTH_FAILED = "AUTH_FAILED";
 export const AUTH_CLEAR_TOKENS = "AUTH_CLEAR_TOKENS";
-export const AUTH_INIT_LOGOUT = "AUTH_INIT_LOGOUT";
-export const AUTH_INIT_CLEARTOKENS = "AUTH_INIT_CLEARTOKENS";
 
 export const SET_AUTH_REDIRECT_PATH = "SET_AUTH_REDIRECT_PATH";
+
+// Redux Saga way
+export const AUTH_USER = "AUTH_USER";
+export const AUTH_INIT_CLEARTOKENS = "AUTH_INIT_CLEARTOKENS";
+export const AUTH_INIT_LOGOUT = "AUTH_INIT_LOGOUT";
+export const AUTH_CHECK_STATE = "AUTH_CHECK_STATE";
