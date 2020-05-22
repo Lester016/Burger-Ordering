@@ -1,5 +1,4 @@
 import * as actionTypes from "./actionTypes";
-import axios from "axios";
 
 export const authStart = () => {
   return {
@@ -54,29 +53,34 @@ export const authenticate = (email, password, isSignUp) => {
     returnSecureToken: true,
   };
 
-  let url =
-    "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCW3REY0vir8a1pR98m4L70uvSIcXukyUs";
-  if (!isSignUp) {
-    url =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCW3REY0vir8a1pR98m4L70uvSIcXukyUs";
-  }
-  return (dispatch) => {
-    dispatch(authStart());
-    axios
-      .post(url, authData)
-      .then((response) => {
-        localStorage.setItem("token", response.data.idToken);
-        localStorage.setItem(
-          "expirationDate",
-          new Date(new Date().getTime() + response.data.expiresIn * 1000)
-        );
-        localStorage.setItem("userId", response.data.localId);
-        dispatch(authSuccess(response.data.idToken, response.data.localId));
-        dispatch(logout(response.data.expiresIn));
-      })
-      .catch((error) => {
-        dispatch(authFailed(error.response.data.error));
-      });
+  // let url =
+  //   "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCW3REY0vir8a1pR98m4L70uvSIcXukyUs";
+  // if (!isSignUp) {
+  //   url =
+  //     "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCW3REY0vir8a1pR98m4L70uvSIcXukyUs";
+  // }
+  // return (dispatch) => {
+  //   dispatch(authStart());
+  //   axios
+  //     .post(url, authData)
+  //     .then((response) => {
+  //       localStorage.setItem("token", response.data.idToken);
+  //       localStorage.setItem(
+  //         "expirationDate",
+  //         new Date(new Date().getTime() + response.data.expiresIn * 1000)
+  //       );
+  //       localStorage.setItem("userId", response.data.localId);
+  //       dispatch(authSuccess(response.data.idToken, response.data.localId));
+  //       dispatch(logout(response.data.expiresIn));
+  //     })
+  //     .catch((error) => {
+  //       dispatch(authFailed(error.response.data.error));
+  //     });
+  // };
+  return {
+    type: actionTypes.AUTH_USER,
+    isSignUp: isSignUp,
+    authData: authData,
   };
 };
 
