@@ -37,3 +37,7 @@ export const AUTH_CHECK_STATE = "AUTH_CHECK_STATE";
 
 // Burger Builder
 export const INIT_INGREDIENTS = "INIT_INGREDIENTS";
+
+// Fetching Orders
+export const PURCHASE_ORDER = "PURCHASE_ORDER";
+export const FETCH_ORDER = "FETCH_ORDER";
