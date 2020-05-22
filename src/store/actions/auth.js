@@ -23,19 +23,27 @@ export const authFailed = (error) => {
 };
 
 export const clearTokens = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("expirationDate");
-  localStorage.removeItem("userId");
+  // localStorage.removeItem("token");
+  // localStorage.removeItem("expirationDate");
+  // localStorage.removeItem("userId");
+  // return {
+  //   type: actionTypes.AUTH_CLEAR_TOKENS,
+  // };
+  return {
+    type: actionTypes.AUTH_INIT_CLEARTOKENS,
+  };
+};
+
+export const clearTokensSucceed = () => {
   return {
     type: actionTypes.AUTH_CLEAR_TOKENS,
   };
 };
 
 export const logout = (authExpiration) => {
-  return (dispatch) => {
-    setTimeout(() => {
-      dispatch(clearTokens());
-    }, authExpiration * 1000);
+  return {
+    type: actionTypes.AUTH_INIT_LOGOUT,
+    authExpiration: authExpiration,
   };
 };
 
